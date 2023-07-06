@@ -1,10 +1,15 @@
-function Expenseitem(){
+function Expenseitem(props){
     return(
-        <div> 
-            <h1>Expense Item</h1>
-        <div>Food Rs.10</div>
-        <div>Petrol Rs.100</div>
-        <div>Movies Rs.200</div>
+        <div className="expense-item">
+            <div>{props.date.toISOString()}</div> 
+            <div className="expense-item-desc">
+                <h2>{props.title}</h2>
+                <div className="expense-item-amount">{props.amount}</div>
+            </div>
+
+            
+
+
     </div>
     )
 
