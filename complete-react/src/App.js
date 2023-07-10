@@ -1,4 +1,5 @@
-import Expenseitem from './Expenseitem.js';
+import Expenseitem from './EXPENSES/Expenseitem.js';
+import Newexpense from './EXPENSES/NEWEXPENSE/Newexpense.js';
 import './App.css';
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
       title={Expenses[3].title}
       amount={Expenses[3].amount} 
       date={Expenses[3].date}></Expenseitem>
+
+      <Newexpense/>
     </div>
   );
 }
