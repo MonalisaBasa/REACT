@@ -7,6 +7,12 @@ const Expenseform = (props) => {
     const [Enteredtitle, setTitle] = useState('');
     const [Enteredamount, setAmount] = useState('');
     const [Entereddate, setDate] = useState('');
+    //to define a multiple useState in a single 
+    // const [UserInput,setUserInput] =useState({
+    //     Enteredtitle:'',
+    //     Enteredamount:'',
+    //     Entereddate:''
+    // });
     const titleChangeHandler = (e) => {
         setTitle(e.target.value);
     }
@@ -20,13 +26,17 @@ const Expenseform = (props) => {
     const submitHandler = (e) => {
         e.preventDefault();
 
-        const obj = {
+        const expenseData = {
             title: Enteredtitle,
             amount: Enteredamount,
             date: new Date(Entereddate)
 
         }
-        console.log(obj);
+        // console.log(obj);
+        props.onSaveExpenseData(expenseData);
+        setTitle('');
+        setAmount('');
+        setDate('')
     }
 
 
@@ -37,15 +47,28 @@ const Expenseform = (props) => {
                     <label >Title</label>
                     {/* onchange event handler */}
                     {/* <input type="text" onChange={Changehandler} />    */}
-                    <input type="text" onChange={titleChangeHandler} />
+                    <input type="text" 
+                    value={Enteredtitle}
+                    onChange={titleChangeHandler} 
+                    />
                 </div>
                 <div class="new-expense">
                     <label >Amount</label>
-                    <input type="number" min="0.01" step="0.01" onChange={amountChangeHandler} />
+                    <input type="number"
+                    value={Enteredamount} 
+                    min="0.01" 
+                    step="0.01" 
+                    onChange={amountChangeHandler} 
+                    />
                 </div>
                 <div class="new-expense">
                     <label >Date</label>
-                    <input type="date" min="2019-01-01" step="2022-12-31" onChange={dateChangeHandler} />
+                    <input type="date" 
+                    value={Entereddate}
+                    min="2019-01-01" 
+                    step="2022-12-31" 
+                    onChange={dateChangeHandler} 
+                    />
                 </div>
             </div>
             <div>
