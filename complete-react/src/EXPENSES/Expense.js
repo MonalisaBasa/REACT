@@ -15,19 +15,19 @@ const Expenses = (props) => {
 
     {/* Render conditionally */ }
 
-    // let expenseContent=<p>No expenses Found</p>
-    // if(filteredExpenses.length > 0){
-    //     expenseContent=filteredExpenses.map((expense) => (
-    //         <Expenseitem
-    //             key={expense.id}
+    let expenseContent=<p>No expenses Found</p>
+    if(filteredExpenses.length > 0){
+        expenseContent=filteredExpenses.map((expense) => (
+            <Expenseitem
+                key={expense.id}
                 
-    //             title={expense.title}
-    //             amount={expense.amount}
-    //             date={expense.date} />
-    //             )
+                title={expense.title}
+                amount={expense.amount}
+                date={expense.date} />
+                )
 
-    //     )
-    // }
+        )
+    }
 
   
     return (
